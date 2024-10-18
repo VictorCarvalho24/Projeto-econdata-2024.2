@@ -1,0 +1,23 @@
+# Instale o pacote se ainda não o tiver
+install.packages("GetTDData")
+
+# Carregue o pacote
+library(GetTDData)
+
+df.yield <- get.yield.curve()
+
+ltn_data- td_get(
+  asset_codes = "LTN",
+  first_year = 2005,
+  last_year = as.numeric(format(Sys.Date(), "%Y")),
+  dl_folder = get_cache_folder()
+)
+
+
+# Baixar dados das NTN-Bs
+ntnb_data <- td_get(
+  asset_codes = "NTN-B",
+  first_year = 2005,  # ou o ano de início que desejar
+  last_year = as.numeric(format(Sys.Date(), "%Y")),
+  dl_folder = get_cache_folder()
+)
