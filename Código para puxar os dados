@@ -6,7 +6,7 @@ library(GetTDData)
 
 df.yield <- get.yield.curve()
 
-ltn_data- td_get(
+ltn_data<- td_get(
   asset_codes = "LTN",
   first_year = 2005,
   last_year = as.numeric(format(Sys.Date(), "%Y")),
