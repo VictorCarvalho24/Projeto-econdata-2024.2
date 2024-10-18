@@ -21,3 +21,20 @@ ntnb_data <- td_get(
   last_year = as.numeric(format(Sys.Date(), "%Y")),
   dl_folder = get_cache_folder()
 )
+
+
+mergeado <- merge(ntnb_data, ltn_data, by = "matur_date")
+
+mergeado$implicita<- ((1+mergeado$yield_bid.y)/(1+mergeado$yield_bid.x))-1
+
+library(ggplot2)
+
+
+graph<-ggplot(mergeado, aes(x = matur_date, y = implicita)) +
+  geom_line(color = "blue") +
+  labs(title = "Inflação Implícita ao Longo do Tempo",
+       x = "Data de Referência",
+       y = "Inflação Implícita") +  
+  theme_minimal() 
+
+print(graph)
